@@ -27,7 +27,7 @@ SECRET_KEY = 'django-insecure-ykfjbl&ixarqm@^o^^bv^+su7#deccsd7!9ix8g#*h3e&*m#1(
 # SECURITY WARNING: don't run with debug turned on in production!
 DEBUG = False
 
-ALLOWED_HOSTS = ['localhost', '127.0.0.1', '://onrender.com']
+ALLOWED_HOSTS = ['localhost', '127.0.0.1', '://onrender.com', 'https://exerc-registro-aprendizado.onrender.com']
 
 
 # Application definition
@@ -121,15 +121,15 @@ USE_TZ = True
 # Static files (CSS, JavaScript, Images)
 # https://docs.djangoproject.com/en/6.0/howto/static-files/
 
-STATIC_URL = '/static/'
+STATIC_URL = 'static/'
 
-if not DEBUG:
-    # Absolute path to the directory where collectstatic will gather static files for deployment
-    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-    # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
-    # and renames the files with unique names for each version to support long-term caching
-    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+# Absolute path to the directory where collectstatic will gather static files for deployment
+STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+
+# Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
+# and renames the files with unique names for each version to support long-term caching
+STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # minhas configurações
 LOGIN_REDIRECT_URL = 'learning_logs:index'
