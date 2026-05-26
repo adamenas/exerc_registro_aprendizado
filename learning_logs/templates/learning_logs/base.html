@@ -1,0 +1,20 @@
+<p>
+    <a href="{% url 'learning_logs:index' %}">Página inicial</a> -
+    <a href="{% url 'learning_logs:topics' %}">Tópicos</a> -
+    {% if user.is_authenticated %}
+        Olá, {{ user.username }}.
+    {% else %}
+        <a href="{% url 'accounts:register' %}">Cadastre-se</a> -
+        <a href="{% url 'accounts:login' %}">Entrar</a>
+    {% endif %}
+</p>
+
+{% block content %}{% endblock content %}
+
+{% if user.is_authenticated %}
+    <hr />
+    <form action="{% url 'accounts:logout' %}" method="post">
+        {% csrf_token %}
+        <button name="submit">Sair</button>
+    </form>
+{% endif %}
