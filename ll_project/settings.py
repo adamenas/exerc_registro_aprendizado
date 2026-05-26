@@ -124,12 +124,13 @@ USE_TZ = True
 
 STATIC_URL = '/static/'
 
-# Absolute path to the directory where collectstatic will gather static files for deployment
-STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
+if not DEBUG:
+    # Absolute path to the directory where collectstatic will gather static files for deployment
+    STATIC_ROOT = os.path.join(BASE_DIR, 'staticfiles')
 
-# Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
-# and renames the files with unique names for each version to support long-term caching
-STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
+    # Enable the WhiteNoise storage backend, which compresses static files to reduce disk use
+    # and renames the files with unique names for each version to support long-term caching
+    STATICFILES_STORAGE = 'whitenoise.storage.CompressedManifestStaticFilesStorage'
 
 # minhas configurações
 LOGIN_REDIRECT_URL = 'learning_logs:index'
